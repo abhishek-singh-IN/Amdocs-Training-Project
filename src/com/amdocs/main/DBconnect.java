@@ -1,4 +1,4 @@
-package com.amdocs;
+package com.amdocs.main;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

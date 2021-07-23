@@ -1,4 +1,4 @@
-package com.amdocs;
+package com.amdocs.main;
 
 import java.io.IOException;
 import java.sql.CallableStatement;
@@ -24,7 +24,6 @@ public class Project extends HttpServlet {
      */
     public Project() {
         super();
-        // TODO Auto-generated constructor stub
     }
     
     public void init() throws ServletException {
@@ -39,14 +38,12 @@ public class Project extends HttpServlet {
 	            stmt.execute();
 	            name = stmt.getString(1);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
             try {
 				con.close();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             

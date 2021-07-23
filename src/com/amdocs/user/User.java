@@ -1,13 +1,10 @@
-package com.amdocs;
+package com.amdocs.user;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.sql.Date;
 
 public class User implements Serializable{
 	
-    /**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private String name;
     private String userid;
@@ -15,7 +12,7 @@ public class User implements Serializable{
     private String upload_photo;
     private String password;
     private String address;
-    private int phone;
+    private String phone;
     private Date reg_date;
     
 	public String getName() {
@@ -60,10 +57,10 @@ public class User implements Serializable{
 	public void setReg_date(Date reg_date) {
 		this.reg_date = reg_date;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
         

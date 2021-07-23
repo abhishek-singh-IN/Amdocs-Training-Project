@@ -7,18 +7,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div align="center">
 
- <div align="center">
   <h1>User Registeration Form</h1><br>
-  <form action="<%= request.getContextPath() %>/user-register" method="post">
+  <form action="<%= request.getContextPath() %>/admin-register" method="post">
+  
    <table style="with: 80%">
     <tr>
      <td>Name</td>
      <td><input type="text" name="name" /></td>
-    </tr>
-    <tr>
-     <td>Phone No</td>
-     <td><input type="text" name="phone" /></td>
     </tr>
     <tr>
      <td>Email</td>
@@ -28,17 +25,11 @@
      <td>Password</td>
      <td><input type="password" name="password" /></td>
     </tr>
-    <tr>
-     <td>Address</td>
-     <td><input type="text" name="address" /></td>
-    </tr>
-    <tr>
-     <td>Upload Photo</td>
-     <td><input type="text" name="photo" /></td>
-    </tr>
    </table>
+   
    <br><br>
    <input type="submit" value="Submit" />
+   
   </form>
  </div>
 </body>

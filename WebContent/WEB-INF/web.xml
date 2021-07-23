@@ -10,11 +10,19 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
-    <servlet-name>abc3</servlet-name>
-    <servlet-class>com.amdocs.Project</servlet-class>
+    <servlet-name>home</servlet-name>
+    <servlet-class>com.amdocs.main.Project</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>abc3</servlet-name>
+    <servlet-name>home</servlet-name>
     <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>userRegister</servlet-name>
+    <servlet-class>com.amdocs.user.UserRegisterServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userRegister</servlet-name>
+    <url-pattern>/user-register</url-pattern>
   </servlet-mapping>
 </web-app>
