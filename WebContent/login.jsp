@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Register</title>
+<title>Login</title>
 <style>
 h1 {text-align: center;}
 p {text-align: center;}
@@ -15,32 +15,16 @@ body{background-color:#F5E79D}
 <body>
 
  <div align="center">
-  <h1>User Registeration Form</h1><br>
-  <form action="<%= request.getContextPath() %>/user-register" method="post">
+  <h1>Login</h1><br>
+  <form action="<%= request.getContextPath() %>/login" method="post">
    <table style="with: 80%">
     <tr>
-     <td>Name</td>
-     <td><input type="text" name="name" /></td>
-    </tr>
-    <tr>
-     <td>Phone No</td>
-     <td><input type="text" name="phone" /></td>
-    </tr>
-    <tr>
-     <td>Email</td>
-     <td><input type="text" name="email" /></td>
+     <td>User Id</td>
+     <td><input type="text" name="loginid" /><br><br></td>
     </tr>
     <tr>
      <td>Password</td>
      <td><input type="password" name="password" /></td>
-    </tr>
-    <tr>
-     <td>Address</td>
-     <td><input type="text" name="address" /></td>
-    </tr>
-    <tr>
-     <td>Upload Photo</td>
-     <td><input type="text" name="photo" /></td>
     </tr>
    </table>
    <br><br>
