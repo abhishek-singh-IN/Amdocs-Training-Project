@@ -25,9 +25,11 @@ public class LoginServlet extends HttpServlet {
 		
 		switch(login.loginUser(userid , password)) {
 			case 0:
+				request.setAttribute("message",userid);
 				request.getRequestDispatcher("userHome.jsp").forward(request, response);
 			    break;
 			 case 1:
+				 request.setAttribute("message",userid);
 				 request.getRequestDispatcher("adminHome.jsp").forward(request, response);
 			    break;
 			 default:

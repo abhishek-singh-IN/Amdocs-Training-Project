@@ -25,6 +25,14 @@
     <servlet-name>userRegister</servlet-name>
     <url-pattern>/user-register</url-pattern>
   </servlet-mapping>
+    <servlet>
+    <servlet-name>insertFeedback</servlet-name>
+    <servlet-class>com.amdocs.user.FeedbackServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertFeedback</servlet-name>
+    <url-pattern>/user/feedback</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>com.amdocs.main.LoginServlet</servlet-class>
