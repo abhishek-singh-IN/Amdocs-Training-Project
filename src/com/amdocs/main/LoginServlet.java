@@ -3,6 +3,7 @@ package com.amdocs.main;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,14 +24,20 @@ public class LoginServlet extends HttpServlet {
 		String userid = request.getParameter("loginid");
 		String password = request.getParameter("password");
 		
-		switch(login.loginUser(userid , password)) {
+		login LU = new login(userid , password);
+		
+		switch(LU.loginUser()) {
 			case 0:
+				Cookie ck=new Cookie("user_id",userid);
+				response.addCookie(ck);
 				request.setAttribute("message",userid);
 				request.getRequestDispatcher("userHome.jsp").forward(request, response);
 			    break;
 			 case 1:
-				 request.setAttribute("message",userid);
-				 request.getRequestDispatcher("adminHome.jsp").forward(request, response);
+				Cookie ck1=new Cookie("user_id",userid);
+				response.addCookie(ck1);
+				request.setAttribute("message",userid);
+				request.getRequestDispatcher("adminHome.jsp").forward(request, response);
 			    break;
 			 default:
 				 response.sendRedirect("user-register");  

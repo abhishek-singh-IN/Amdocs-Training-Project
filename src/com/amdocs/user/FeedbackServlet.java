@@ -2,7 +2,7 @@ package com.amdocs.user;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -22,11 +22,11 @@ public class FeedbackServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String feedback_message = request.getParameter("feedback_message");
-		int user_id = 0;
-		
-		Feedback feedback = new Feedback(user_id,feedback_message);
-		System.out.print(feedback.getFeedback_id());
+		Cookie ck[]=request.getCookies();
+		Feedback feedback = new Feedback(Integer.parseInt(ck[0].getValue()),request.getParameter("feedback_message"));
+		request.setAttribute("message1","Your Feedback is Submitted ");
+		request.setAttribute("message2","Feedback Id :" + feedback.getFeedback_id());
+		request.getRequestDispatcher("resultFeedback.jsp").forward(request, response);
 	}
 
 }
