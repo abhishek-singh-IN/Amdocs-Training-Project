@@ -46,7 +46,7 @@ public class ViewFeedbackServlet extends HttpServlet {
 			ResultSet rs=stmt.executeQuery("select * from feedback");
 			out.println("<h1>FEEDBACK FROM USER</h1>");
 			out.println("<div>");
-			out.println("<table border=1 width=50% height=50%>");  
+			out.println("<table border=1 width=100% height=50%>");  
             out.println("<tr><th>USER ID</th><th>FEEDBACK ID</th><th>FEEDBACK MESSAGE</th><tr>");
             
 			while(rs.next()) {
