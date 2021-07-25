@@ -1,5 +1,10 @@
 package com.amdocs.main;
 
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Types;
+
 public class Feedback {
 	int feedback_id;
 	int user_id;
@@ -36,18 +41,26 @@ public class Feedback {
 		feedback_message = null;
 	}
 
-	public Feedback(int user_id,String feedback) {
+	public Feedback(int user_id,String feedback) throws SQLException {
 		super();
 		setUser_id(user_id);
 		setFeedback_message(feedback_message);
 		setFeedback_id(submitFeedback());
 	}
 	
-	public int submitFeedback() {
+	public int submitFeedback() throws SQLException {
 		
-		//PL/SQL query to submit feedback and return the Feedback Id
+		Connection con = DBconnect.dbconn();
+		CallableStatement preparedStatement;
+
+		preparedStatement = con.prepareCall("{?= submitFeedback(?,?)}");
+		preparedStatement.setInt(2, getUser_id());
+		preparedStatement.setString(3, getFeedback_message());
+		preparedStatement.registerOutParameter(1, Types.INTEGER);
+		preparedStatement.execute();
+		con.close();
 		
-		return 0;
+		return preparedStatement.getInt(1);
 	}
 	
 }
