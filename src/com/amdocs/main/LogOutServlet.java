@@ -17,6 +17,6 @@ public class LogOutServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Cookie ck=new Cookie("user_id","");
 		response.addCookie(ck);
-		response.sendRedirect("FinalProject"); 
+		response.sendRedirect("/FinalProject"); 
 	}
 }

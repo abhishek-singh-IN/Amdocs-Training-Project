@@ -20,8 +20,8 @@ body{background-color:#F5E79D}
 </div>
 <br><br>
 <div>
-	<a href="user/add-course">My Courses</a>&emsp;
-	<a href="user/view-course">Enroll Courses</a>&emsp;
+	<a href="user/view-course">My Courses</a>&emsp;
+	<a href="user/add-course">Enroll Courses</a>&emsp;
 	<a href="user/admin">View Admin</a>&emsp;
 	<a href="user/feedback">Feedback</a><br><br>&emsp;	
 </div>
