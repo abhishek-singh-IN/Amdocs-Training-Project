@@ -10,7 +10,7 @@
 <div align="center">
 
   <h1>User Registeration Form</h1><br>
-  <form action="<%= request.getContextPath() %>/admin-register" method="post">
+  <form action="<%= request.getContextPath() %>/admin/add" method="post">
   
    <table style="with: 80%">
     <tr>

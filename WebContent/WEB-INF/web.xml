@@ -78,7 +78,7 @@
   </servlet-mapping>
   <servlet>
     <servlet-name>addAdmin</servlet-name>
-    <servlet-class>com.amdocs.admin.AddAdminServlet</servlet-class>
+    <servlet-class>com.amdocs.admin.AdminRegisterServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>addAdmin</servlet-name>
