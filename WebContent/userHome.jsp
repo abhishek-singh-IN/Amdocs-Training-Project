@@ -25,6 +25,10 @@ body{background-color:#F5E79D}
 	<a href="user/admin">View Admin</a>&emsp;
 	<a href="user/feedback">Feedback</a><br><br>&emsp;	
 </div>
+
+<div>
+	<a href="user/logout">Log Out</a><br><br>&emsp;	
+</div>
 	
 </body>
 </html>
