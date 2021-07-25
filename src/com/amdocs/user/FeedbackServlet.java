@@ -30,7 +30,6 @@ public class FeedbackServlet extends HttpServlet {
 			request.setAttribute("message2","Feedback Id :" + feedback.getFeedback_id());
 			request.getRequestDispatcher("resultFeedback.jsp").forward(request, response);
 		} catch (NumberFormatException | SQLException e) {
-			
 			request.setAttribute("message1",e.getMessage());
 			request.getRequestDispatcher("resultFeedback.jsp").forward(request, response);
 			e.printStackTrace();

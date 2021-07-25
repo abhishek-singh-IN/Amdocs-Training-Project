@@ -50,10 +50,9 @@ public class ViewFeedbackServlet extends HttpServlet {
             out.println("<tr><th>USER ID</th><th>FEEDBACK ID</th><th>FEEDBACK MESSAGE</th><tr>");
             
 			while(rs.next()) {
-				System.out.print(rs.getInt(1));
-				int n = rs.getInt(1);  
-                int s = rs.getInt(3); 
-                String nm = rs.getString(2);
+				String n = rs.getString(1);  
+                String s = rs.getString(2); 
+                String nm = rs.getString(3);
                 out.println("<tr><td>" + n + "</td><td>" + s + "</td><td>" + nm + "</td></tr>");  
 			}
 			out.println("</table>");  

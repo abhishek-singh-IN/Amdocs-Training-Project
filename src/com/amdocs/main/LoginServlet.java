@@ -24,21 +24,24 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userid = request.getParameter("loginid");
 		String password = request.getParameter("password");
-		
-		login LU = new login(userid , password);
-		Cookie ck=new Cookie("user_id",userid);
-		
+				
 		try {
+			login LU = new login(userid , password);
+			Cookie ck,ck1;
 			switch(LU.loginUser()) {
 				case 0:
+					ck= new Cookie("user_id",userid);
 					response.addCookie(ck);
-					request.setAttribute("message",userid);
-					request.getRequestDispatcher("userHome.jsp").forward(request, response);
+					ck1= new Cookie("user_type","user");
+					response.addCookie(ck1);
+					response.sendRedirect("user");
 				    break;
 				 case 1:
-					response.addCookie(ck);
-					request.setAttribute("message",userid);
-					request.getRequestDispatcher("adminHome.jsp").forward(request, response);
+					 ck= new Cookie("user_id",userid);
+					 response.addCookie(ck);
+					 ck1= new Cookie("user_type","admin");
+					 response.addCookie(ck1);
+					 response.sendRedirect("admin");
 				    break;
 				 default:
 					 response.sendRedirect("user-register");  

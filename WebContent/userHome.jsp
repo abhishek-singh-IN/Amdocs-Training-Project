@@ -27,7 +27,7 @@ body{background-color:#F5E79D}
 </div>
 
 <div>
-	<a href="/logout">Log Out</a><br><br>&emsp;	
+	<a href="logout">Log Out</a><br><br>&emsp;	
 </div>
 	
 </body>
