@@ -1,7 +1,13 @@
 package com.amdocs.user;
 
 import java.io.Serializable;
+import java.sql.CallableStatement;
+import java.sql.Connection;
 import java.sql.Date;
+import java.sql.SQLException;
+import java.sql.Types;
+
+import com.amdocs.main.DBconnect;
 
 public class User implements Serializable{
 	
@@ -62,6 +68,26 @@ public class User implements Serializable{
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	
+	public static int registerUser(User user) throws ClassNotFoundException, SQLException {
+
+		Connection con = DBconnect.dbconn();
+		CallableStatement preparedStatement;
+
+		preparedStatement = con.prepareCall("{?= call insertUSER1(?,?,?,?,?,?,?)}");
+		preparedStatement.setString(2, user.getName());
+		preparedStatement.setString(3, user.getPhone());
+		preparedStatement.setString(4, user.getEmail());
+		preparedStatement.setString(5, user.getAddress());
+		preparedStatement.setDate(6, (Date) user.getReg_date());
+		preparedStatement.setString(7, user.getPassword());
+		preparedStatement.setString(8, user.getUpload_photo());
+		preparedStatement.registerOutParameter(1, Types.INTEGER);
+		preparedStatement.execute();
+
+		con.close();
+		return preparedStatement.getInt(1);
 	}
         
 }

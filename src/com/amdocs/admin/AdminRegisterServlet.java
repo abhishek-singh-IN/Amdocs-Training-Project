@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.amdocs.main.Register;
-
 public class AdminRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,7 +32,7 @@ public class AdminRegisterServlet extends HttpServlet {
 		user.setPassword(password);
 		
 		try {
-			Register.registerAdmin(user);
+			Admin.registerAdmin(user);
 			response.sendRedirect("/logout");
 		} catch (ClassNotFoundException | SQLException e) {
 			e.printStackTrace();

@@ -1,6 +1,7 @@
 package com.amdocs.main;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -27,19 +28,24 @@ public class LoginServlet extends HttpServlet {
 		login LU = new login(userid , password);
 		Cookie ck=new Cookie("user_id",userid);
 		
-		switch(LU.loginUser()) {
-			case 0:
-				response.addCookie(ck);
-				request.setAttribute("message",userid);
-				request.getRequestDispatcher("userHome.jsp").forward(request, response);
-			    break;
-			 case 1:
-				response.addCookie(ck);
-				request.setAttribute("message",userid);
-				request.getRequestDispatcher("adminHome.jsp").forward(request, response);
-			    break;
-			 default:
-				 response.sendRedirect("user-register");  
+		try {
+			switch(LU.loginUser()) {
+				case 0:
+					response.addCookie(ck);
+					request.setAttribute("message",userid);
+					request.getRequestDispatcher("userHome.jsp").forward(request, response);
+				    break;
+				 case 1:
+					response.addCookie(ck);
+					request.setAttribute("message",userid);
+					request.getRequestDispatcher("adminHome.jsp").forward(request, response);
+				    break;
+				 default:
+					 response.sendRedirect("user-register");  
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			response.sendRedirect("user-register");
 		}
 
 	}

@@ -40,7 +40,7 @@ public class UserRegisterServlet extends HttpServlet {
         
         int s = -1;
         try {
-        	s= com.amdocs.main.Register.registerUser(user);
+        	s= User.registerUser(user);
         } catch (Exception e) {
             e.printStackTrace();
         }
