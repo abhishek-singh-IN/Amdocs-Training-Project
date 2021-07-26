@@ -57,6 +57,11 @@ public class ViewFeedbackServlet extends HttpServlet {
 			}
 			out.println("</table>");  
 			out.println("</div>");
+			out.println("<br><br>");
+			out.println("<div>");
+			out.println("<a href='/FinalProject/admin'>Home</a>&emsp;");
+			out.println("<a href='/FinalProject/logout'>Log Out</a>&emsp;");	
+			out.println("</div>");
             out.println("</html></body>");  
             con.close();  
 			

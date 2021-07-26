@@ -21,10 +21,14 @@ body{background-color:#F5E79D}
 <br><br>
 <div>
 	<a href="admin/user">View Users</a>&emsp;
-	<a href="admin/course">View Courses</a>&emsp;
+	<a href="admin/course">Add Courses</a>&emsp;
+	<a href="admin/view-course">View Courses</a>&emsp;
 	<a href="admin/add">Add Admin</a>&emsp;
+	<a href="admin/admin">View Admin</a>&emsp;
 	<a href="admin/feedback">View Feedback</a><br><br>&emsp;	
 </div>
-	
+<div>
+	<a href="/FinalProject/logout">Log Out</a><br><br>&emsp;	
+</div>	
 </body>
 </html>

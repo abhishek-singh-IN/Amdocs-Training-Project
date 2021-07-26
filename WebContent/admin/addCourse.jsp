@@ -4,17 +4,39 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Add Course</title>
+<style>
+h1 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+}
+
+div {
+	text-align: center;
+}
+
+table {
+	text-align: center;
+}
+
+body {
+	background-color: #F5E79D
+}
+</style>
 </head>
 <body>
 	<div align="center">
 
 		<h1>Add Course For Users</h1>
 		<br>
+
 		<form action="<%=request.getContextPath()%>/admin/course"
 			method="post">
 
-			<table style="with: 80%">
+			<table style="with: 80%" align="center">
 				<tr>
 					<td>Course Name</td>
 					<td><input type="text" name="name" /></td>
@@ -38,10 +60,9 @@
 		</form>
 	</div>
 	<br>
-	<br>
 	<div>
-		<a href="/FinalProject/admin">Home</a>&emsp; 
-		<a href="/FinalProject/logout">Log Out</a>&emsp;
+		<a href="/FinalProject/admin">Home</a>&emsp; <a
+			href="/FinalProject/logout">Log Out</a>&emsp;
 	</div>
 </body>
 </html>

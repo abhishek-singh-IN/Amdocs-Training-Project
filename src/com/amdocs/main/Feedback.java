@@ -53,7 +53,7 @@ public class Feedback {
 		Connection con = DBconnect.dbconn();
 		CallableStatement preparedStatement;
 
-		preparedStatement = con.prepareCall("{?= submitFeedback(?,?)}");
+		preparedStatement = con.prepareCall("{?= call submitFeedback(?,?)}");
 		preparedStatement.setInt(2, getUser_id());
 		preparedStatement.setString(3, getFeedback_message());
 		preparedStatement.registerOutParameter(1, Types.INTEGER);

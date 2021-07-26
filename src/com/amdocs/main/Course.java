@@ -89,7 +89,7 @@ public class Course {
 		Connection con = DBconnect.dbconn();
 		CallableStatement preparedStatement;
 
-		preparedStatement = con.prepareCall("{?= enrollCOURSE(?,?)}");
+		preparedStatement = con.prepareCall("{?= call enrollCOURSE(?,?)}");
 		preparedStatement.setInt(2, user_id);
 		preparedStatement.setInt(3, Course_id);
 		preparedStatement.registerOutParameter(1, Types.INTEGER);

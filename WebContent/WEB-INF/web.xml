@@ -52,6 +52,14 @@
     <servlet-name>enrollCourse</servlet-name>
     <url-pattern>/user/add-course</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>viewCourse-admin</servlet-name>
+    <servlet-class>com.amdocs.admin.ViewCourseServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewCourse-admin</servlet-name>
+    <url-pattern>/admin/view-course</url-pattern>
+  </servlet-mapping>
   <servlet>
     <servlet-name>myCourse</servlet-name>
     <servlet-class>com.amdocs.user.MyCourseServlet</servlet-class>
@@ -75,6 +83,14 @@
   <servlet-mapping>
     <servlet-name>viewadmin-user</servlet-name>
     <url-pattern>/user/admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewadmin-admin</servlet-name>
+    <servlet-class>com.amdocs.admin.ViewAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewadmin-admin</servlet-name>
+    <url-pattern>/admin/admin</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>addCourse</servlet-name>

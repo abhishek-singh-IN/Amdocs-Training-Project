@@ -1,4 +1,4 @@
-package com.amdocs.user;
+package com.amdocs.admin;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -53,7 +53,7 @@ public class ViewAdminServlet extends HttpServlet {
 			out.println("</div>");
 			out.println("<br><br>");
 			out.println("<div>");
-			out.println("<a href='/FinalProject/user'>Home</a>&emsp;");
+			out.println("<a href='/FinalProject/admin'>Home</a>&emsp;");
 			out.println("<a href='/FinalProject/logout'>Log Out</a>&emsp;");	
 			out.println("</div>");
 			out.println("</html></body>");
