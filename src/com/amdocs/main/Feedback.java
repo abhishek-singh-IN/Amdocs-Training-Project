@@ -41,7 +41,7 @@ public class Feedback {
 		feedback_message = null;
 	}
 
-	public Feedback(int user_id,String feedback) throws SQLException {
+	public Feedback(int user_id,String feedback_message) throws SQLException {
 		super();
 		setUser_id(user_id);
 		setFeedback_message(feedback_message);
