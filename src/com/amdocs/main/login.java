@@ -1,54 +1,50 @@
 package com.amdocs.main;
 
-import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.Statement;
 
 public class login {
-	String userid =null;
+	String userid = null;
 	static String password = null;
-	
+
 	public String getUserid() {
 		return userid;
 	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public login(String userid, String password) {
 		super();
 		this.userid = userid;
 		login.password = password;
 	}
+
 	public int loginUser() throws SQLException {
 
-			Connection con = DBconnect.dbconn();			
-            CallableStatement stmt=con.prepareCall("{?= call getStudent(?)}");
-            stmt.setInt(2,2);
-            stmt.registerOutParameter(1,Types.VARCHAR);
-            stmt.execute();
-            con.close();
-            
-            //Verify UserId with password
-            /*
-             * 		Connection con = DBconnect.dbconn();
-					CallableStatement preparedStatement;
-			
-					preparedStatement = con.prepareCall("{?= verifyLogin(?,?)}");
-					preparedStatement.setInt(2, userid);
-					preparedStatement.setString(3, password);
-					preparedStatement.registerOutParameter(1, Types.INTEGER);
-					preparedStatement.execute();
-			
-					con.close();					
-					return preparedStatement.getInt(1);
-             */
-			
-			if(password.equals(stmt.getString(1)) ) {
-				return 0;  
-			}
-			
-			return 1;
+		Connection con = DBconnect.dbconn();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from user1");
+
+		while (rs.next()) {
+			if (getUserid().equals(rs.getString(1)) && getPassword().equals(rs.getString(7)))
+				return 0;
+		}
+
+		con = DBconnect.dbconn();
+		stmt = con.createStatement();
+		rs = stmt.executeQuery("select * from admin1");
+
+		while (rs.next()) {
+			if (getUserid().equals(rs.getString(1)) && getPassword().equals(rs.getString(4)))
+				return 1;
+		}
+
+		con.close();
+		return 2;
 
 	}
 }

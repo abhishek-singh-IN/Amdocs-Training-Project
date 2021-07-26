@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
 					 response.sendRedirect("admin");
 				    break;
 				 default:
-					 response.sendRedirect("user-register");  
+					 response.sendRedirect("login");  
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
