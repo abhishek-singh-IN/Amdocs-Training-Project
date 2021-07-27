@@ -30,8 +30,7 @@ body {
 <body>
 	<div align="center">
 		<h1>Admin Registeration Form</h1>
-		<form action="<%=request.getContextPath()%>/admin/add" method="post"
-			align="center">
+		<form action="<%=request.getContextPath()%>/admin/add" method="post">
 
 			<table style="with: 80%" align="center">
 				<tr>

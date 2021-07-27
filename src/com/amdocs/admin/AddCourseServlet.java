@@ -7,34 +7,50 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.amdocs.main.Course;
 
 public class AddCourseServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-     
-    public AddCourseServlet() {
-        super();
-    }
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("addCourse.jsp").forward(request, response);
-	}
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String desp = request.getParameter("desp");
-        String fees = request.getParameter("fees");
-        String resource = request.getParameter("resource");
-            
-        try {
-        	Course c = new Course(name,resource,desp,fees);
-			c.addCourse();
-			response.sendRedirect("/FinalProject/admin");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			response.sendRedirect("/FinalProject/admin/course");
+		HttpSession session = request.getSession(false);
+
+		if (((String) session.getAttribute("usertype")).equalsIgnoreCase("user")) {
+			response.sendRedirect(request.getContextPath() + "/user");
+		} else if (((String) session.getAttribute("usertype")).equalsIgnoreCase("admin")) {
+			request.getRequestDispatcher("addCourse.jsp").forward(request, response);
+		} else {
+			response.sendRedirect(request.getContextPath());
 		}
 	}
 
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		HttpSession session = request.getSession(false);
+
+		if (((String) session.getAttribute("usertype")).equalsIgnoreCase("user")) {
+			response.sendRedirect(request.getContextPath() + "/user");
+		} else if (((String) session.getAttribute("usertype")).equalsIgnoreCase("admin")) {
+			String name = request.getParameter("name");
+			String desp = request.getParameter("desp");
+			String fees = request.getParameter("fees");
+			String resource = request.getParameter("resource");
+
+			try {
+				Course c = new Course(name, resource, desp, fees);
+				c.addCourse();
+				response.sendRedirect(request.getContextPath() + "/admin");
+			} catch (SQLException e) {
+				e.printStackTrace();
+				response.sendRedirect(request.getContextPath() + "/admin/course");
+			}
+		} else {
+			response.sendRedirect(request.getContextPath());
+		}
+	}
 }

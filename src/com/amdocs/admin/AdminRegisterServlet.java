@@ -6,38 +6,52 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class AdminRegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public AdminRegisterServlet() {
-		super();
-	}
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.getRequestDispatcher("adminRegister.jsp").forward(request, response);
+
+		HttpSession session = request.getSession(false);
+
+		if (((String) session.getAttribute("usertype")).equalsIgnoreCase("admin")) {
+			request.getRequestDispatcher("adminRegister.jsp").forward(request, response);
+		} else if (((String) session.getAttribute("usertype")).equalsIgnoreCase("user")) {
+			response.sendRedirect(request.getContextPath() + "/user");
+		} else {
+			response.sendRedirect(request.getContextPath());
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String password = request.getParameter("password");
 
-		Admin user = new Admin();
+		HttpSession session = request.getSession(false);
 
-		user.setName(name);
-		user.setEmail(email);
-		user.setPassword(password);
-		
-		try {
-			Admin.registerAdmin(user);
-			response.sendRedirect("/logout");
-		} catch (ClassNotFoundException | SQLException e) {
-			e.printStackTrace();
+		if (((String) session.getAttribute("usertype")).equalsIgnoreCase("user")) {
+			response.sendRedirect(request.getContextPath() + "/user");
 		}
+		if (((String) session.getAttribute("usertype")).equalsIgnoreCase("admin")) {
+			String name = request.getParameter("name");
+			String email = request.getParameter("email");
+			String password = request.getParameter("password");
 
+			Admin user = new Admin();
+			user.setName(name);
+			user.setEmail(email);
+			user.setPassword(password);
+
+			try {
+				Admin.registerAdmin(user);
+				response.sendRedirect("/logout");
+			} catch (ClassNotFoundException | SQLException e) {
+				e.printStackTrace();
+			}
+
+		} else {
+			response.sendRedirect(request.getContextPath());
+		}
 	}
-
 }

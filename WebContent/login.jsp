@@ -16,6 +16,7 @@ body{background-color:#F5E79D}
 
  <div align="center">
   <h1>Login</h1><br>
+  <h3>${message}</h3><br>
   <form action="<%= request.getContextPath() %>/login" method="post">
    <table style="with: 80%">
     <tr>

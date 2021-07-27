@@ -30,8 +30,12 @@ public class login {
 		ResultSet rs = stmt.executeQuery("select * from user1");
 
 		while (rs.next()) {
-			if (getUserid().equals(rs.getString(1)) && getPassword().equals(rs.getString(7)))
-				return 0;
+			if (getUserid().equals(rs.getString(1))) {
+				if (getPassword().equals(rs.getString(7)))
+					return 0;
+
+				return 2;
+			}
 		}
 
 		con = DBconnect.dbconn();
@@ -39,12 +43,17 @@ public class login {
 		rs = stmt.executeQuery("select * from admin1");
 
 		while (rs.next()) {
-			if (getUserid().equals(rs.getString(1)) && getPassword().equals(rs.getString(4)))
-				return 1;
+			if (getUserid().equals(rs.getString(1))) {
+
+				if (getPassword().equals(rs.getString(4)))
+					return 1;
+
+				return 3;
+			}
 		}
 
 		con.close();
-		return 2;
+		return 5;
 
 	}
 }
