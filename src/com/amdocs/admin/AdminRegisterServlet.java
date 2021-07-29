@@ -45,8 +45,9 @@ public class AdminRegisterServlet extends HttpServlet {
 
 			try {
 				Admin.registerAdmin(user);
-				response.sendRedirect("/logout");
+				response.sendRedirect(request.getContextPath() + "/admin/admin");
 			} catch (ClassNotFoundException | SQLException e) {
+				response.sendRedirect(request.getContextPath() + "/logout");
 				e.printStackTrace();
 			}
 

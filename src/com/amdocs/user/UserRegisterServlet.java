@@ -48,7 +48,7 @@ public class UserRegisterServlet extends HttpServlet {
 			session.setAttribute("userid", s);
 			session.setAttribute("usertype", "user");
 			request.setAttribute("message", s);
-			request.getRequestDispatcher("userHome.jsp").forward(request, response);
+			request.getRequestDispatcher("userHome2.jsp").forward(request, response);
 		} else {
 			response.sendRedirect(request.getContextPath());
 		}

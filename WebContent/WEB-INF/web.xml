@@ -28,7 +28,7 @@
     <servlet-name>userRegister</servlet-name>
     <url-pattern>/user-register</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>user</servlet-name>
     <servlet-class>com.amdocs.user.UserServlet</servlet-class>
   </servlet>
@@ -52,7 +52,7 @@
     <servlet-name>enrollCourse</servlet-name>
     <url-pattern>/user/add-course</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>viewCourse-admin</servlet-name>
     <servlet-class>com.amdocs.admin.ViewCourseServlet</servlet-class>
   </servlet>
@@ -68,7 +68,7 @@
     <servlet-name>myCourse</servlet-name>
     <url-pattern>/user/view-course</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>admin</servlet-name>
     <servlet-class>com.amdocs.admin.AdminServlet</servlet-class>
   </servlet>
